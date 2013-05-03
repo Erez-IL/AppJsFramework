@@ -7,16 +7,11 @@
             CONSUMER_SECRET : 'xxxx'
         },
 
-        BITLY_CONFIGURES : {
-            ACCESS_TOKEN : 'xxxx'
-        },
-
         API_URLS : {
             TWITTER_REQUEST_TOKEN : 'https://api.twitter.com/oauth/request_token',
             TWITTER_ACCESS_TOKEN : 'https://api.twitter.com/oauth/access_token',
             TWITTER_AUTHORIZE : 'https://api.twitter.com/oauth/authorize',
-            TWITTER_STATUSES_UPDATE : 'https://api.twitter.com/1.1/statuses/update.json',
-            BITLY_SHORTEN_URL : 'https://api-ssl.bitly.com/v3/shorten'
+            TWITTER_STATUSES_UPDATE : 'https://api.twitter.com/1.1/statuses/update.json'
         },
 
         APP_ROUTE : '/www/',
