@@ -1,0 +1,40 @@
+#divArea {
+    margin-top: 30px;
+    padding-right: 10px;
+}
+
+#divAlerts div.alert {
+    display: none;
+}
+
+#txtTargetUrl {
+    width: 100%;
+}
+
+.clears {
+    text-align: right;
+}
+
+/********************************
+ *
+ *****/
+
+#toolbar {
+    margin-top: 8px;
+}
+
+#divTweet {
+    padding-top: 30px;
+    margin-bottom: 150px;
+    padding-right: 10px;
+}
+
+#txtAreaTweetBox {
+    height: 110px;
+    width: 100%;
+}
+
+#btnTweetPost {
+    width: 100%;
+    font-size: 20px;
+}
