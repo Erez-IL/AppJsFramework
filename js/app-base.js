@@ -1,4 +1,3 @@
-
 /************
  * Override Browser implementation functions
  * ブラウザが持っている関数のオーバーライド
@@ -32,7 +31,29 @@ var isUIWebView = true,
      * @param errMsg
      * @param url
      * @param lineNumber
-     */
+     *
+     * **************************
+     * iOSの場合のみ使用する
+     * onDeviceReady化されていない場合でもerrorハンドリングする為のもの
+     * 使用する場合はshouldStartLoadWithRequestイベントに下記のコードを追記する
+    
+    NSLog(@"webview shouldStartLoadWithRequest ... %@", [request URL]);
+    // リクエストに「ios-log:#iOS#」が含まれる場合には、リクエストをキャッチする。
+    NSString* nextUrl=[[request URL] absoluteString];
+    NSRange range;
+    if ((range=[nextUrl rangeOfString:@"ios-log:"]).location!=NSNotFound) {
+ 
+        // リクエスト内容から、ログ内容を取得する。
+        NSString *iOSLog = [nextUrl stringByReplacingOccurrencesOfString:@"ios-log:"withString:@""];
+        // 文字列はパーセントエスケープされているので、デコードする。
+        iOSLog = [iOSLog stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSLog(@"%@",iOSLog);
+ 
+        // このリクエストは、ここで中断する。
+        return NO;
+    }
+    
+     * **************************
     window.onerror = function(errMsg, url, lineNumber) {
 
         function funcName(f){
@@ -56,6 +77,8 @@ var isUIWebView = true,
         window.log("[ERROR]" + url + "(" + lineNumber + ") : " + errMsg + "\n" + stackTrace());
     }
 })();
+
+    *****/
 
 /************
  * Common Base Library
