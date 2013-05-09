@@ -76,6 +76,24 @@ var isUIWebView = true,
 
         window.log("[ERROR]" + url + "(" + lineNumber + ") : " + errMsg + "\n" + stackTrace());
     }
+
+    // ダイアログにhtmlを表示しない。
+    var _oldAlert = window.alert;
+    window.alert = function(msg) {
+        if( App.common.isDeviceReadied ) {
+            navigator.notification.alert(
+                msg,
+                function() {},
+                ' ',
+                'OK'
+            );
+
+        }else {
+            _oldAlert(msg);
+
+        }
+    }
+
 })();
 
     *****/
